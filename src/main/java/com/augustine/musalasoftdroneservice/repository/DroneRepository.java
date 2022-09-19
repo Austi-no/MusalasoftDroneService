@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.*;
  * @project MusalaSoftDroneService
  */
 public interface DroneRepository extends JpaRepository<Drone, Long> {
+
+    Drone findDroneBySerialNumber(String serialNumber);
 }

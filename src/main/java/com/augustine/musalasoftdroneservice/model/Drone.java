@@ -28,23 +28,20 @@ public class Drone implements Serializable {
     @Column(name = "serial_number")
     private String serialNumber;
 
-    @NotBlank(message = "WEIGHT LIMIT should not be blank")
     @Column(name = "weight_limit")
-    @Range(min = 1, max = 100, message = "WEIGHT LIMIT should be between 0 and 100")
-    private Integer weightLimit;
+    @Range(min = 1, max = 500, message = "WEIGHT LIMIT should be between 0 and 100")
+    private int weightLimit;
 
-    @NotBlank(message = "Battery Percentage should not be blank")
     @Range(min = 1, max = 100, message = "BATTERY PERCENTAGE should be between 0 and 100")
     @Column(name = "battery_percentage")
-    private Double batteryPercentage;
+    private int batteryPercentage;
 
-    @NotBlank(message = "MODEL should not be blank")
     @Column(name = "model")
     @Enumerated(EnumType.STRING)
     private Model model;
 
-    @NotBlank(message = "STATE should not be blank")
-    @Column(name = "STATE")
+
+    @Column(name = "state")
     @Enumerated(EnumType.STRING)
     private State state;
 
@@ -55,7 +52,7 @@ public class Drone implements Serializable {
     public Drone() {
     }
 
-    public Drone(String serialNumber, Integer weightLimit, Double batteryPercentage, Model model, State state) {
+    public Drone(String serialNumber, Integer weightLimit, int batteryPercentage, Model model, State state) {
         this.serialNumber = serialNumber;
         this.weightLimit = weightLimit;
         this.batteryPercentage = batteryPercentage;
@@ -87,11 +84,11 @@ public class Drone implements Serializable {
         this.weightLimit = weightLimit;
     }
 
-    public Double getBatteryPercentage() {
+    public int getBatteryPercentage() {
         return batteryPercentage;
     }
 
-    public void setBatteryPercentage(Double batteryPercentage) {
+    public void setBatteryPercentage(int batteryPercentage) {
         this.batteryPercentage = batteryPercentage;
     }
 
@@ -130,18 +127,5 @@ public class Drone implements Serializable {
                 ", state=" + state +
                 ", medications=" + medications +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Drone)) return false;
-        Drone drone = (Drone) o;
-        return Objects.equals(id, drone.id) && Objects.equals(serialNumber, drone.serialNumber) && Objects.equals(weightLimit, drone.weightLimit) && Objects.equals(batteryPercentage, drone.batteryPercentage) && model == drone.model && state == drone.state && Objects.equals(medications, drone.medications);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, serialNumber, weightLimit, batteryPercentage, model, state, medications);
     }
 }
