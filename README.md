@@ -20,6 +20,8 @@ Go to the http://localhost:9000/h2-console
 ## Accessing OpenAPI3 Swagger Documentation
 
 Go to the http://localhost:9000/swagger-ui.html
+![](swagger.png)
+
 
 1. REGISTER DRONE
 
