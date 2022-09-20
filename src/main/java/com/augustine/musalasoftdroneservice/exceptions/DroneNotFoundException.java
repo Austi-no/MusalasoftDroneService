@@ -1,5 +1,7 @@
 package com.augustine.musalasoftdroneservice.exceptions;
 
+import org.springframework.http.*;
+
 /**
  * @author BENARD AUGUSTINE ADAKOLE
  * @created on 19/Sep/2022 - 1:37 PM

@@ -10,5 +10,7 @@ import org.springframework.data.jpa.repository.*;
  */
 public interface DroneRepository extends JpaRepository<Drone, Long> {
 
+    Drone findDroneById(Long id);
+
     Drone findDroneBySerialNumber(String serialNumber);
 }

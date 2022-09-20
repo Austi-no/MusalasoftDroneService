@@ -17,23 +17,20 @@ public class Medication implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "CODE should not be blank")
     @Pattern(regexp = "([A-Za-z0-9\\-_]+)",
             message = "CODE should either be upper case, underscore and numbers")
     @Column(name = "name")
     private String name;
 
     @Column(name = "weight")
-    private Double weight;
+    private int weight;
 
-    @NotBlank(message = "CODE should not be blank")
     @Pattern(regexp = "(?=[A-Z0-9_]*[A-Z_])",
             message = "CODE should either be upper case, underscore and numbers")
     @Column(name = "code")
     private String code;
 
-    @NotBlank(message = "IMAGE URL should not be blank")
+
     @Column(name = "image_url")
     private String imageURL;
 
@@ -45,7 +42,7 @@ public class Medication implements Serializable {
     public Medication() {
     }
 
-    public Medication(String name, Double weight, String code, String imageURL, Drone drone) {
+    public Medication(String name, int weight, String code, String imageURL, Drone drone) {
         this.name = name;
         this.weight = weight;
         this.code = code;
@@ -69,11 +66,11 @@ public class Medication implements Serializable {
         this.name = name;
     }
 
-    public Double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
